@@ -1,14 +1,8 @@
 menu = """
 
+*------- BEM-VINDO AO BANCO : MONTE PYTHON -------*
 
-
-*------- BEM-VINDO AO BANCO BSB -------*
-
-
-
-Escolha qual operação deseja fazer :
-
-
+Escolha a operação Desejada :
 
 [1] Depositar
 
@@ -18,11 +12,7 @@ Escolha qual operação deseja fazer :
 
 [4] Sair
 
-
-
 => """
-
-
 
 saldo = 0
 
@@ -34,17 +24,9 @@ numero_saques = 0
 
 LIMITE_SAQUES = 3
 
-
-
-
-
 while True:
 
-
-
   opcao = input(menu)
-
-
 
   if opcao == "1":
 
@@ -54,57 +36,38 @@ while True:
 
       saldo += dep
 
-      print('Depósito realizado com sucesso!')
+      print('Depósito Realizado com Sucesso!')
 
       extrato += (f'\nDepósito: R$ {dep:.2f}')
 
-      
-
     else:
 
-      print('Operação falhou. Digite um valor válido!')
-
-            
+      print('Operação Não Sucedida. Informe um valor válido!')         
 
   elif opcao == "2":
 
+    saq = (float(input("Qual valor você deseja sacar? ")))
+
+    excedeu_saldo = saq > saldo 
     
-
-    sq = (float(input("Qual valor você deseja sacar? ")))
-
-
-
-    excedeu_saldo = sq > saldo #verificações
-
-
-
-    excedeu_limite = sq > limite
+    excedeu_limite = saq > limite
 
 
 
     excedeu_saques = numero_saques >= LIMITE_SAQUES
-
-
-
     
 
     if excedeu_saldo:
 
-      print('Operação falhou! Você não tem saldo suficiente.')
-
-    
+      print('Operação falhou!  Saldo Insuficiente.')
 
     elif excedeu_limite:
 
-      print ('Operação falhou o valor do saque excede o limite.')
-
-    
+      print ('Operação falhou o valor Estourou o Limite.')
 
     elif excedeu_saques:
 
       print('Operação falhou! Número máximo de saques excedido')
-
-    
 
     elif sq > 0:
 
@@ -114,12 +77,10 @@ while True:
 
       numero_saques += 1
 
-      
-
+    
     else:
 
       print('Operação Falhou! O valor é inválido.')      
-
 
 
   elif opcao == "3":
@@ -128,20 +89,17 @@ while True:
 
     print('\n----------EXTRATO --------------')
 
-    print('Não foram realizadas movimentações.' if not extrato else extrato)
+    print('Não foram Concluídas as  movimentações.' if not extrato else extrato)
 
     print(f'\nSaldo: R$ {saldo:.2f}')
 
     print('----------------------------------')
 
 
-
   elif opcao == "4":
 
     break
 
-  
-
   else:
 
-    print("Operação inválida, por favor selecione a operação desejada.")
+    print("Operação inválida, Tente Novamente.")
